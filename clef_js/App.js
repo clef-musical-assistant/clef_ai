@@ -24,18 +24,13 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import MusicRNN from '@magenta/music/es6/music_rnn';
+import music_rnn from '@magenta/music/es6';
 
-import * as tf from '@tensorflow/tfjs';
-//import '@tensorflow/tfjs-react-native';
-
-//
-//const core = require('@magenta/music/node/core');
-//const transcriber = require('@magenta/music/node/transcription');
-
-const model = new MusicRNN(
-  'https://storage.googleapis.com/magentadata/js/checkpoints/music_rnn/melody_rnn',
+const melodyrnn = new music_rnn.MusicRNN(
+    "https://storage.googleapis.com/magentadata/js/checkpoints/music_rnn/melody_rnn"
 );
+
+import core from '@magenta/music/es6';
 
 const App: () => React$Node = () => {
   return (
